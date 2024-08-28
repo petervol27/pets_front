@@ -15,6 +15,7 @@
       crossorigin="anonymous"
     ></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="./front/general.js"></script>
     <title>Pets</title>
   </head>
   <body>
@@ -72,7 +73,7 @@
 </html>
 <script>
   const getPets = async () => {
-    const response = await axios.get('https://pets-2hb2.onrender.com/pets/');
+    const response = await axios.get(hostName);
     const pets = response.data;
     const petList = document.getElementById('petList');
     let finalHTML = '';
@@ -101,9 +102,7 @@
   getPets();
 
   const deletePet = async (id) => {
-    const response = await axios.delete(
-      `https://pets-2hb2.onrender.com/pets/${id}`
-    );
+    const response = await axios.delete(`${hostName$}${id}/`);
     alert(response.data.response);
     getPets();
   };
@@ -132,18 +131,15 @@
   const search = async (event) => {
     event.preventDefault();
     const searchValue = document.getElementById('searchForm').value;
-    const response = await axios.get(
-      `https://pets-2hb2.onrender.com/pets/search`,
-      {
-        params: {
-          searchValue: searchValue,
-        },
-        headers: {
-          'Content-Type': 'application/json',
-          Accept: 'application/json',
-        },
-      }
-    );
+    const response = await axios.get(`${hostName}search/`, {
+      params: {
+        searchValue: searchValue,
+      },
+      headers: {
+        'Content-Type': 'application/json',
+        Accept: 'application/json',
+      },
+    });
 
     const pets = response.data;
     let finalHTML = '';

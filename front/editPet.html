@@ -16,6 +16,8 @@
     ></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <link src="./style.css" rel="stylesheet" />
+    <script src="./front/general.js"></script>
+
     <title>Pets</title>
   </head>
   <body>
@@ -72,9 +74,7 @@
   };
   const displayPetInfo = async () => {
     const petId = await getPetId();
-    const response = await axios.get(
-      `https://pets-2hb2.onrender.com/pets/${petId}/`
-    );
+    const response = await axios.get(`${hostName}${petId}/`);
     const pet = response.data;
     const editForm = document.getElementById('editForm');
     const formHTML = `<h1>Edit Pet</h1>
@@ -105,10 +105,7 @@
       img: img,
       animal: animal,
     };
-    const response = await axios.put(
-      `https://pets-2hb2.onrender.com/pets/${petId}`,
-      updatedPet
-    );
+    const response = await axios.put(`${hostName}${petId}`, updatedPet);
     alert(response.data.response);
     window.location.href = '../index.html';
   };

@@ -16,6 +16,8 @@
     ></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <link src="./style.css" rel="stylesheet" />
+    <script src="./front/general.js"></script>
+
     <title>Pets</title>
   </head>
   <body>
@@ -89,10 +91,7 @@
       img: img,
       animal: animal,
     };
-    const response = await axios.post(
-      'https://pets-2hb2.onrender.com/pets/',
-      newPet
-    );
+    const response = await axios.post(hostName, newPet);
     alert(response.data.response);
     window.location.href = '../index.html';
   };
