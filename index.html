@@ -93,6 +93,7 @@
                           <p class="card-text">${pet.name} is a ${pet.animal} and is ${pet.age} years old</p>
                           <a class="btn btn-success" id="editBtn-${pet.id}" data-id="${pet.id}">Edit</a>
                           <a class="btn btn-danger" id="deleteBtn-${pet.id}" data-id="${pet.id}">Delete</a>
+                          <a class="btn btn-info" id="callBtn-${pet.id}" data-id="${pet.id}">Call</a>
                         </div>
                       </div>
                       `;
@@ -106,18 +107,13 @@
       document
         .getElementById(`editBtn-${pet.id}`)
         .addEventListener('click', () => goToEdit(pet.id));
+      document
+        .getElementById(`callBtn-${pet.id}`)
+        .addEventListener('click', () => petCall(pet.animal));
     });
   };
   getPets();
 
-  const deletePet = async (id) => {
-    const response = await axios.delete(`${hostName$}${id}/`);
-    alert(response.data.response);
-    getPets();
-  };
-  const goToEdit = (id) => {
-    window.location.href = `https://pets-front.onrender.com/editPet?id=${id}`;
-  };
   const getWeather = async () => {
     navigator.geolocation.getCurrentPosition(async (position) => {
       const latitude = position.coords.latitude;
@@ -161,6 +157,7 @@
                           <p class="card-text">${pet.name} is a ${pet.animal} and is ${pet.age} years old</p>
                           <a class="btn btn-success" id="editBtn-${pet.id}" data-id="${pet.id}">Edit</a>
                           <a class="btn btn-danger" id="deleteBtn-${pet.id}" data-id="${pet.id}">Delete</a>
+                          <a class="btn btn-info" id="callBtn-${pet.id}" data-id="${pet.id}">Call</a>
                         </div>
                       </div>`;
       finalHTML += petHTML;
@@ -173,6 +170,9 @@
       document
         .getElementById(`editBtn-${pet.id}`)
         .addEventListener('click', () => goToEdit(pet.id));
+      document
+        .getElementById(`callBtn-${pet.id}`)
+        .addEventListener('click', () => petCall(pet.animal));
     });
     if (petList.innerHTML == '') {
       petList.innerHTML =

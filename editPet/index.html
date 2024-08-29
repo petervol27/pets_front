@@ -17,7 +17,6 @@
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <link src="../style.css" rel="stylesheet" />
     <script src="../general.js"></script>
-
     <title>Pets</title>
   </head>
   <body>
@@ -66,7 +65,7 @@
         </div>
       </div>
     </nav>
-    <div class="container text-center">
+    <div class="container">
       <form class="form-signin form-group" id="editForm"></form>
     </div>
   </body>
@@ -172,6 +171,7 @@
                           <p class="card-text">${pet.name} is a ${pet.animal} and is ${pet.age} years old</p>
                           <a class="btn btn-success" id="editBtn-${pet.id}" data-id="${pet.id}">Edit</a>
                           <a class="btn btn-danger" id="deleteBtn-${pet.id}" data-id="${pet.id}">Delete</a>
+                          <a class="btn btn-info" id="callBtn-${pet.id}" data-id="${pet.id}">Call</a>
                         </div>
                       </div>`;
       finalHTML += petHTML;
@@ -191,6 +191,9 @@
       document
         .getElementById(`editBtn-${pet.id}`)
         .addEventListener('click', () => goToEdit(pet.id));
+      document
+        .getElementById(`callBtn-${pet.id}`)
+        .addEventListener('click', () => petCall(pet.animal));
     });
     if (petList.innerHTML == '') {
       petList.innerHTML =
