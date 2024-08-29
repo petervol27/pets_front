@@ -84,16 +84,46 @@
     const response = await axios.get(`${hostName}${petId}/`);
     const pet = response.data;
     const editForm = document.getElementById('editForm');
-    const formHTML = `<h1>Edit Pet</h1>
-        <label for="petName">Pet Name:</label>
-        <input type="text" id="petName" name="petName" value="${pet.name}" class="form-control" />
-        <label for="petAge">Pet Age:</label>
-        <input type="number" id="petAge" name="petAge" value="${pet.age}" class="form-control"/>
-        <label for="img">Pet Image:</label>
-        <input type="url" id="img" name="img" value="${pet.img}" class="form-control"/>
-        <label for="animal">Pet Type:</label>
-        <input type="text" id="animal" name="animal" value="${pet.animal}" class="form-control"/>
-        <input type="button" class="btn btn-primary" value="Submit" id="editPetBtn" />
+    const formHTML = `<h1 class="text-center">Edit Pet</h1>
+        <div class="row">
+          <div class="col">
+            <label for="petName">Pet Name:</label>
+            <input
+              type="text"
+              id="petName"
+              name="petName"
+              class="form-control"
+              value = "${pet.name}"
+            />
+          </div>
+          <div class="col">
+            <label for="petAge">Pet Age:</label>
+            <input
+              type="number"
+              id="petAge"
+              name="petAge"
+              class="form-control" value = "${pet.age}"
+            />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <label for="img">Pet Image:</label>
+            <input type="url" id="img" name="img" class="form-control" value = "${pet.img}" />
+          </div>
+          <div class="col">
+            <label for="animal">Pet Type:</label>
+            <input type="text" id="animal" name="animal" class="form-control" value = "${pet.animal}" />
+          </div>
+        </div>
+        <div class="container text-center">
+          <input
+            type="button"
+            class="btn btn-primary mt-3"
+            value="Submit"
+            id="addPetBtn"
+          />
+        </div>
         `;
     editForm.innerHTML = formHTML;
     const editBtn = document
