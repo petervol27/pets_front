@@ -68,7 +68,7 @@
       </div>
     </nav>
     <div class="container text-center">
-      <form class="form-signin" id="editForm"></form>
+      <form class="form-signin form-group" id="editForm"></form>
     </div>
   </body>
 </html>
@@ -86,14 +86,14 @@
     const editForm = document.getElementById('editForm');
     const formHTML = `<h1>Edit Pet</h1>
         <label for="petName">Pet Name:</label>
-        <input type="text" id="petName" name="petName" value="${pet.name}" />
+        <input type="text" id="petName" name="petName" value="${pet.name}" class="form-control" />
         <label for="petAge">Pet Age:</label>
-        <input type="number" id="petAge" name="petAge" value="${pet.age}"/>
+        <input type="number" id="petAge" name="petAge" value="${pet.age}" class="form-control"/>
         <label for="img">Pet Image:</label>
-        <input type="url" id="img" name="img" value="${pet.img}" />
+        <input type="url" id="img" name="img" value="${pet.img}" class="form-control"/>
         <label for="animal">Pet Type:</label>
-        <input type="text" id="animal" name="animal" value="${pet.animal}" />
-        <input type="button" value="Submit" id="editPetBtn" />
+        <input type="text" id="animal" name="animal" value="${pet.animal}" class="form-control"/>
+        <input type="button" class="btn btn-primary" value="Submit" id="editPetBtn" />
         `;
     editForm.innerHTML = formHTML;
     const editBtn = document

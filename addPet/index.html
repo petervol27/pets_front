@@ -68,17 +68,22 @@
       </div>
     </nav>
     <div class="container text-center">
-      <form class="form-signin">
+      <form class="form-signin form-group">
         <h1>Add New Pet</h1>
         <label for="petName">Pet Name:</label>
-        <input type="text" id="petName" name="petName" />
+        <input type="text" id="petName" name="petName" class="form-control" />
         <label for="petAge">Pet Age:</label>
-        <input type="number" id="petAge" name="petAge" />
+        <input type="number" id="petAge" name="petAge" class="form-control" />
         <label for="img">Pet Image:</label>
-        <input type="url" id="img" name="img" />
+        <input type="url" id="img" name="img" class="form-control" />
         <label for="animal">Pet Type:</label>
-        <input type="text" id="animal" name="animal" />
-        <input type="button" value="Submit" id="addPetBtn" />
+        <input type="text" id="animal" name="animal" class="form-control" />
+        <input
+          type="button"
+          class="btn btn-primary"
+          value="Submit"
+          id="addPetBtn"
+        />
       </form>
     </div>
   </body>
