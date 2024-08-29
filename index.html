@@ -139,6 +139,7 @@
     .addEventListener('click', () => search(event));
   const search = async (event) => {
     event.preventDefault();
+    const petList = document.getElementById('petList');
     const searchValue = document.getElementById('searchForm').value;
     const response = await axios.get(`${hostName}search/`, {
       params: {
