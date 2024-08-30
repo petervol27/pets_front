@@ -3,7 +3,11 @@
 const hostName = 'https://pets-2hb2.onrender.com/pets/';
 
 const deletePet = async (id) => {
-  const response = await axios.delete(`${hostName}${id}/`);
+  const response = await axios.delete(`${hostName}${id}/`, {
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  });
   alert(response.data.response);
   getPets();
 };
